@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de Tarea</title>
+    <!-- Incluye los estilos de Tailwind CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-100 p-8">
+
+<div class="max-w-2xl mx-auto">
+    <h2 class="text-2xl font-bold mb-4">{{ tarea.titulo }}</h2>
+
+    <p class="mb-4">{{ tarea.descripcion }}</p>
+    <p>Fecha de Creación: {{ tarea.fecha_creacion }}</p>
+    <p>Completada: <span class="font-bold">{{ tarea.completada|yesno:"Sí,No" }}</span></p>
+
+    <a href="{% url 'tarea_editar' pk=tarea.pk %}" class="bg-blue-500 text-white py-2 px-4 rounded mr-2">Editar tarea</a>
+    <a href="{% url 'tarea_list' %}" class="bg-gray-500 text-white py-2 px-4 rounded">Volver a la lista de tareas</a>
+</div>
+
+</body>
+</html>
